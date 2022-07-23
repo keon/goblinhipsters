@@ -112,7 +112,7 @@ const Home: NextPage = () => {
               <FrontCard isCardFlipped={isMinted}>
                 <Image
                   layout="responsive"
-                  src="/nft/blue.png"
+                  src="/egg-transparent.png"
                   width="500"
                   height="500"
                   alt="Ghotter NFT"
@@ -123,7 +123,7 @@ const Home: NextPage = () => {
               <BackCard isCardFlipped={isMinted}>
                 <div style={{ padding: 24 }}>
                   <Image
-                    src="/nft/blue.png"
+                    src="/egg-transparent.png"
                     width="80"
                     height="80"
                     alt="Ghotter NFT"
