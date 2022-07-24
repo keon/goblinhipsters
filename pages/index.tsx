@@ -61,11 +61,11 @@ const Home: NextPage = () => {
 
   const isMinted = txSuccess;
 
+  const memoizedBG = React.useMemo(() => <BG />, []);
+
   return (
     <>
-      <div>
-        <BG />
-      </div>
+      <div>{memoizedBG}</div>
       <div className="page" style={{ position: "relative", zIndex: 1 }}>
         <div className="fixed top-4 left-1/2 -translate-x-1/2 z-10">
           <Image
