@@ -1,42 +1,43 @@
-import '../styles/global.css';
-import '@rainbow-me/rainbowkit/styles.css';
-import type { AppProps } from 'next/app';
+import "../styles/global.css";
+import "@rainbow-me/rainbowkit/styles.css";
+import type { AppProps } from "next/app";
 import {
   RainbowKitProvider,
   getDefaultWallets,
   connectorsForWallets,
   wallet,
-} from '@rainbow-me/rainbowkit';
-import { chain, createClient, configureChains, WagmiConfig } from 'wagmi';
-import { alchemyProvider } from 'wagmi/providers/alchemy';
-import { publicProvider } from 'wagmi/providers/public';
+} from "@rainbow-me/rainbowkit";
+import { chain, createClient, configureChains, WagmiConfig } from "wagmi";
+import { alchemyProvider } from "wagmi/providers/alchemy";
+import { publicProvider } from "wagmi/providers/public";
+import "react-modal-video/scss/modal-video.scss";
 
 const { chains, provider, webSocketProvider } = configureChains(
   [
     chain.rinkeby,
-    ...(process.env.NEXT_PUBLIC_ENABLE_TESTNETS === 'true'
+    ...(process.env.NEXT_PUBLIC_ENABLE_TESTNETS === "true"
       ? [chain.rinkeby]
       : []),
   ],
   [
-    alchemyProvider({ alchemyId: '_gg7wSSi0KMBsdKnGVfHDueq6xMB9EkC' }),
+    alchemyProvider({ alchemyId: "_gg7wSSi0KMBsdKnGVfHDueq6xMB9EkC" }),
     publicProvider(),
   ]
 );
 
 const { wallets } = getDefaultWallets({
-  appName: 'RainbowKit Mint NFT Demo',
+  appName: "RainbowKit Mint NFT Demo",
   chains,
 });
 
 const demoAppInfo = {
-  appName: 'RainbowKit Mint NFT Demo',
+  appName: "RainbowKit Mint NFT Demo",
 };
 
 const connectors = connectorsForWallets([
   ...wallets,
   {
-    groupName: 'Other',
+    groupName: "Other",
     wallets: [wallet.argent({ chains }), wallet.trust({ chains })],
   },
 ]);
