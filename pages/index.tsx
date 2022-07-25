@@ -131,7 +131,7 @@ const Home: NextPage = () => {
                       View on{" "}
                       <a
                         className="font-semibold"
-                        href={`https://rinkeby.etherscan.io/tx/${mintData?.hash}`}
+                        href={`https://etherscan.io/tx/${mintData?.hash}`}
                       >
                         Etherscan
                       </a>
@@ -140,7 +140,7 @@ const Home: NextPage = () => {
                       View on{" "}
                       <a
                         className="font-semibold"
-                        href={`https://testnets.opensea.io/assets/rinkeby/${mintData?.to}/1`}
+                        href={`https://testnets.opensea.io/assets/${mintData?.to}/1`}
                       >
                         Opensea
                       </a>
@@ -149,7 +149,7 @@ const Home: NextPage = () => {
                 </BackCard>
               </FlipCard>
             </div>
-            <p className="text-4xl font-bold  stroke goblet">
+            <p className="text-4xl font-bold stroke goblet">
               {/* {totalMinted} Minted / 10000 */}
               0 Minted / 10000 
             </p>
