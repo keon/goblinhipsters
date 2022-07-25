@@ -26,12 +26,12 @@ const { chains, provider, webSocketProvider } = configureChains(
 );
 
 const { wallets } = getDefaultWallets({
-  appName: "RainbowKit Mint NFT Demo",
+  appName: "Goblin Hipsters",
   chains,
 });
 
 const demoAppInfo = {
-  appName: "RainbowKit Mint NFT Demo",
+  appName: "Goblin Hipsters",
 };
 
 const connectors = connectorsForWallets([

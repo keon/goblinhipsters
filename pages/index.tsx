@@ -67,7 +67,7 @@ const Home: NextPage = () => {
     <>
       <div>{memoizedBG}</div>
       <div className="page" style={{ position: "relative", zIndex: 1 }}>
-        <div className="fixed top-4 left-1/2 -translate-x-1/2 z-10">
+        <div className="fixed z-10 -translate-x-1/2 top-4 left-1/2">
           <Image
             className="cursor-pointer"
             src="/resources/play.png"
@@ -77,7 +77,7 @@ const Home: NextPage = () => {
             onClick={() => setOpen(true)}
           />
         </div>
-        <div className="container justify-center items-center">
+        <div className="container items-center justify-center">
           <div className="flex flex-col items-center">
             {/* <h1 className="text-4xl font-bold">Goblin Hipsters</h1> */}
             {/* <div className="video-container">
@@ -149,8 +149,9 @@ const Home: NextPage = () => {
                 </BackCard>
               </FlipCard>
             </div>
-            <p className=" text-4xl font-bold stroke goblet">
-              {totalMinted} Minted / 10000
+            <p className="text-4xl font-bold  stroke goblet">
+              {/* {totalMinted} Minted / 10000 */}
+              0 Minted / 10000 
             </p>
 
             <div className="mt-4">
