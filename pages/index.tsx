@@ -109,7 +109,10 @@ const Home: NextPage = () => {
                   <ConnectButton />
                 </FrontCard>
                 <BackCard isCardFlipped={isMinted}>
-                  <div style={{ padding: 24 }}>
+                  <div
+                    style={{ padding: 24 }}
+                    className="text-white text-center"
+                  >
                     <Image
                       src="/egg-transparent.png"
                       width="80"
@@ -123,28 +126,29 @@ const Home: NextPage = () => {
                     >
                       NFT Minted!
                     </h2>
-                    <p style={{ marginBottom: 24 }}>
+                    <p>
                       Your NFT will show up in your wallet in the next few
                       minutes.
                     </p>
-                    <p style={{ marginBottom: 6 }}>
-                      View on{" "}
+                    <div
+                      style={{ marginTop: 6 }}
+                      className="text-center flex justify-center items-center"
+                    >
                       <a
-                        className="font-semibold"
+                        className="relative button mr-1"
                         href={`https://etherscan.io/tx/${mintData?.hash}`}
+                        target="_blnk"
                       >
                         Etherscan
                       </a>
-                    </p>
-                    <p>
-                      View on{" "}
                       <a
-                        className="font-semibold"
+                        className="relative button ml-1"
                         href={`https://testnets.opensea.io/assets/${mintData?.to}/1`}
+                        target="_blnk"
                       >
                         Opensea
                       </a>
-                    </p>
+                    </div>
                   </div>
                 </BackCard>
               </FlipCard>
