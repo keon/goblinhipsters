@@ -67,7 +67,7 @@ const Home: NextPage = () => {
     <>
       <div>{memoizedBG}</div>
       <div className="page" style={{ position: "relative", zIndex: 1 }}>
-        <div className="fixed top-4 left-1/2 -translate-x-1/2 z-10">
+        <div className="fixed z-10 -translate-x-1/2 top-4 left-1/2">
           <Image
             className="cursor-pointer"
             src="/resources/play.png"
@@ -131,7 +131,7 @@ const Home: NextPage = () => {
                       View on{" "}
                       <a
                         className="font-semibold"
-                        href={`https://rinkeby.etherscan.io/tx/${mintData?.hash}`}
+                        href={`https://etherscan.io/tx/${mintData?.hash}`}
                       >
                         Etherscan
                       </a>
@@ -140,7 +140,7 @@ const Home: NextPage = () => {
                       View on{" "}
                       <a
                         className="font-semibold"
-                        href={`https://testnets.opensea.io/assets/rinkeby/${mintData?.to}/1`}
+                        href={`https://testnets.opensea.io/assets/${mintData?.to}/1`}
                       >
                         Opensea
                       </a>
@@ -149,8 +149,8 @@ const Home: NextPage = () => {
                 </BackCard>
               </FlipCard>
             </div>
-            <p className=" text-4xl font-bold stroke goblet">
-              {totalMinted} Minted / 10000
+            <p className="text-4xl font-bold stroke goblet">
+              {/* {totalMinted} Minted / 10000 */}0 Minted / 10000
             </p>
 
             <div className="mt-4">

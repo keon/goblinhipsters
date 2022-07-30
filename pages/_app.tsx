@@ -14,9 +14,9 @@ import "react-modal-video/scss/modal-video.scss";
 
 const { chains, provider, webSocketProvider } = configureChains(
   [
-    chain.rinkeby,
+    chain.mainnet,
     ...(process.env.NEXT_PUBLIC_ENABLE_TESTNETS === "true"
-      ? [chain.rinkeby]
+      ? [chain.mainnet]
       : []),
   ],
   [
@@ -26,12 +26,12 @@ const { chains, provider, webSocketProvider } = configureChains(
 );
 
 const { wallets } = getDefaultWallets({
-  appName: "RainbowKit Mint NFT Demo",
+  appName: "Goblin Hipsters",
   chains,
 });
 
 const demoAppInfo = {
-  appName: "RainbowKit Mint NFT Demo",
+  appName: "Goblin Hipsters",
 };
 
 const connectors = connectorsForWallets([
