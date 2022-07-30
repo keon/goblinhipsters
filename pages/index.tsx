@@ -77,7 +77,7 @@ const Home: NextPage = () => {
             onClick={() => setOpen(true)}
           />
         </div>
-        <div className="container justify-center items-center overflow-y-scroll">
+        <div className="container justify-center items-center">
           <div className="flex flex-col items-center">
             {/* <h1 className="text-4xl font-bold">Goblin Hipsters</h1> */}
             {/* <div className="video-container">
