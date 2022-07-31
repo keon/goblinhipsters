@@ -69,7 +69,7 @@ const Home: NextPage = () => {
       <Head />
       <div>{memoizedBG}</div>
       <div className="page" style={{ position: "relative", zIndex: 1 }}>
-        <div className="fixed z-10 -translate-x-1/2 top-4 left-1/2">
+        <div className="fixed z-10 -translate-x-1/2 top-4 left-1/2 flex items-center">
           <Image
             className="cursor-pointer"
             src="/resources/play.png"
@@ -77,6 +77,31 @@ const Home: NextPage = () => {
             height={80}
             alt=""
             onClick={() => setOpen(true)}
+          />
+
+          <Image
+            className="cursor-pointer ml-2 mr-2"
+            src="/resources/opensea.png"
+            width={70}
+            height={70}
+            alt=""
+            onClick={() =>
+              window.open(
+                "https://opensea.io/collection/goblin-hipsters",
+                "_blank"
+              )
+            }
+          />
+
+          <Image
+            className="cursor-pointer"
+            src="/resources/twitter.png"
+            width={70}
+            height={70}
+            alt=""
+            onClick={() =>
+              window.open("https://twitter.com/GoblinHipsters", "_blank")
+            }
           />
         </div>
         <div className="container items-center justify-center">
@@ -145,7 +170,7 @@ const Home: NextPage = () => {
                       </a>
                       <a
                         className="relative ml-1 button"
-                        href={`https://testnets.opensea.io/assets/${mintData?.to}/1`}
+                        href={`https://opensea.io/assets/${mintData?.to}/1`}
                         target="_blnk"
                       >
                         Opensea
