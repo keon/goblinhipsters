@@ -13,7 +13,7 @@ const toHHMMSS = (secs) => {
     .join(":");
 
   if (days > 0) {
-    return `${days} Days ${hms}`;
+    return `${days} Day ${hms}`;
   }
 
   return hms;

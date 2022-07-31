@@ -10,6 +10,7 @@ import {
 } from "wagmi";
 import contractInterface from "../abi/GoblinHipsters.json";
 import FlipCard, { BackCard, FrontCard } from "../components/FlipCard";
+import Head from "../components/Head";
 import useCountdown from "../hooks/useCountdown";
 import ModalVideo from "react-modal-video";
 import dynamic from "next/dynamic";
@@ -65,6 +66,7 @@ const Home: NextPage = () => {
 
   return (
     <>
+      <Head />
       <div>{memoizedBG}</div>
       <div className="page" style={{ position: "relative", zIndex: 1 }}>
         <div className="fixed z-10 -translate-x-1/2 top-4 left-1/2">
@@ -109,7 +111,10 @@ const Home: NextPage = () => {
                   <ConnectButton />
                 </FrontCard>
                 <BackCard isCardFlipped={isMinted}>
-                  <div style={{ padding: 24 }}>
+                  <div
+                    style={{ padding: 24 }}
+                    className="text-center text-white"
+                  >
                     <Image
                       src="/egg-transparent.png"
                       width="80"
@@ -123,28 +128,29 @@ const Home: NextPage = () => {
                     >
                       NFT Minted!
                     </h2>
-                    <p style={{ marginBottom: 24 }}>
+                    <p>
                       Your NFT will show up in your wallet in the next few
                       minutes.
                     </p>
-                    <p style={{ marginBottom: 6 }}>
-                      View on{" "}
+                    <div
+                      style={{ marginTop: 6 }}
+                      className="flex items-center justify-center text-center"
+                    >
                       <a
-                        className="font-semibold"
+                        className="relative mr-1 button"
                         href={`https://etherscan.io/tx/${mintData?.hash}`}
+                        target="_blnk"
                       >
                         Etherscan
                       </a>
-                    </p>
-                    <p>
-                      View on{" "}
                       <a
-                        className="font-semibold"
+                        className="relative ml-1 button"
                         href={`https://testnets.opensea.io/assets/${mintData?.to}/1`}
+                        target="_blnk"
                       >
                         Opensea
                       </a>
-                    </p>
+                    </div>
                   </div>
                 </BackCard>
               </FlipCard>
