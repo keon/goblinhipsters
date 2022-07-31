@@ -23,7 +23,7 @@ function BG() {
 }
 
 const contractConfig = {
-  addressOrName: "0xa1AA3dADc91C1d46E649Ab3AA7966b751bF5ec6c",
+  addressOrName: "0x61Ed568becd4D5f58782EdeB05AB3872E0222e81",
   contractInterface: contractInterface,
 };
 
@@ -150,8 +150,7 @@ const Home: NextPage = () => {
               </FlipCard>
             </div>
             <p className="text-4xl font-bold stroke goblet">
-              {/* {totalMinted} Minted / 10000 */}
-              0 Minted / 10000 
+              {totalMinted} Minted / 10000
             </p>
 
             <div className="mt-4">
@@ -184,7 +183,7 @@ const Home: NextPage = () => {
                   mint({
                     args: [
                       walletAddress, // owner's wallet address
-                      1, // TODO change this value to mint more than 1
+                      5, // TODO change this value to mint more than 1
                     ],
                   })
                 }
@@ -195,7 +194,7 @@ const Home: NextPage = () => {
                   <>
                     {isMintLoading && "Waiting for approval"}
                     {!isMinted && isMintStarted && "Minting..."}
-                    {!isMintLoading && !isMintStarted && "Mint"}
+                    {!isMintLoading && !isMintStarted && "Mint 5"}
                   </>
                 )}
               </button>
