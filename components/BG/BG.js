@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import React, { Suspense, useRef, useState } from "react";
+import React, { Suspense, useEffect, useRef, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Plane, useAspect, useTexture } from "@react-three/drei";
 import {
@@ -16,6 +16,8 @@ import {
 // import leaves1Url from "./resources/leaves1.png";
 // import leaves2Url from "./resources/leaves2.png";
 import "./materials/layerMaterial";
+
+let x, y;
 
 function Scene({ dof }) {
   const scaleN = useAspect(1600, 1000, 1.05);
@@ -69,26 +71,61 @@ function Scene({ dof }) {
     },
   ];
 
+  useEffect(() => {
+    function handleMouseMove(event) {
+      var eventDoc, doc, body;
+
+      event = event || window.event; // IE-ism
+
+      // If pageX/Y aren't available and clientX/Y are,
+      // calculate pageX/Y - logic taken from jQuery.
+      // (This is to support old IE)
+      if (event.pageX == null && event.clientX != null) {
+        eventDoc = (event.target && event.target.ownerDocument) || document;
+        doc = eventDoc.documentElement;
+        body = eventDoc.body;
+
+        event.pageX =
+          event.clientX +
+          ((doc && doc.scrollLeft) || (body && body.scrollLeft) || 0) -
+          ((doc && doc.clientLeft) || (body && body.clientLeft) || 0);
+        event.pageY =
+          event.clientY +
+          ((doc && doc.scrollTop) || (body && body.scrollTop) || 0) -
+          ((doc && doc.clientTop) || (body && body.clientTop) || 0);
+      }
+      // x = event.pageX ;
+      // y = event.pageY;
+      x = (event.pageX / window.innerWidth) * 2 - 1;
+      y = -1 * ((event.pageY / window.innerHeight) * 2 - 1);
+    }
+
+    document.onmousemove = handleMouseMove;
+  }, []);
+
   useFrame((state, delta) => {
     dof.current.target = focus.lerp(subject.current.position, 0.05);
-    movement.lerp(temp.set(state.mouse.x, state.mouse.y * 0.2, 0), 0.2);
-    group.current.position.x = THREE.MathUtils.lerp(
-      group.current.position.x,
-      state.mouse.x * 20,
-      0.2
-    );
-    group.current.rotation.x = THREE.MathUtils.lerp(
-      group.current.rotation.x,
-      state.mouse.y / 10,
-      0.2
-    );
-    group.current.rotation.y = THREE.MathUtils.lerp(
-      group.current.rotation.y,
-      -state.mouse.x / 2,
-      0.2
-    );
-    layersRef.current[4].uniforms.time.value =
-      layersRef.current[5].uniforms.time.value += delta;
+
+    if (x && y) {
+      movement.lerp(temp.set(x, y * 0.2, 0), 0.2);
+      group.current.position.x = THREE.MathUtils.lerp(
+        group.current.position.x,
+        x * 20,
+        0.2
+      );
+      group.current.rotation.x = THREE.MathUtils.lerp(
+        group.current.rotation.x,
+        y / 10,
+        0.2
+      );
+      group.current.rotation.y = THREE.MathUtils.lerp(
+        group.current.rotation.y,
+        -x / 2,
+        0.2
+      );
+      layersRef.current[4].uniforms.time.value =
+        layersRef.current[5].uniforms.time.value += delta;
+    }
   }, 1);
 
   return (
